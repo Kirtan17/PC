@@ -1,0 +1,115 @@
+<html>
+<head>
+<script>
+	var dataLayer = window.dataLayer || [];
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MQDMLBK');</script>
+<!-- End Google Tag Manager -->
+	<script type="text/javascript">
+		function validate() {
+			var name = document.myform.fname.value; 
+			var email = document.myform.email.value; 
+			var phn = document.myform.mobile.value; 
+			var gen = document.myform.gender.value; 
+			var dayvar = document.getElementById('birthDay');
+			var monthvar = document.getElementById('birthMonth');
+			var yearvar = document.getElementById('birthYear');
+			const regex1 = /^[a-zA-Z]+$/;
+			const regex2 = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			const regex3 = /^[0-9]{10}$/;
+
+			//Name Validation
+			if (name=="" || !regex1.test(name)) {				
+				alert("Name is incorrect or not entered");
+				return false;
+			}
+			// Email Validation
+			else if(email=="" || !regex2.test(email)){
+				alert("Email is incorrect or not entered");
+				return false;
+
+			}
+			// Mobile no. Verfication
+			else if(phn=="" || !regex3.test(phn)){
+				alert("Mobile number is incorrect or not entered");
+				return false;
+
+			}
+			//Gender Verification
+			else if(gen==""){
+				alert("Please select gender");
+				return false;
+
+			}
+			//Date verification
+			else if(dayvar.value=="0" || monthvar.value=="0" || yearvar.value=="0" || yearvar.value=="2021"){
+				alert("Please select valid date");
+				return false;
+			}
+			//Push success after form submission
+			else{
+				window.dataLayer.push({
+				'submission':'success'
+				});
+				return true;
+			}
+		}
+		//Field Tracking
+		function dl(name){
+			window.dataLayer.push({
+				'fieldname':name
+		});	
+	}
+	</script>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQDMLBK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<form name="myform" id="mform" action="./home.html" onsubmit="return(validate());" >
+		First Name: <input type="text" name="fname" id="fname" class="fields" onclick="dl(this.id)">
+		Email: <input type="email" name="email" id="email" class="fields"  onclick="dl(this.id)">
+		Mobile: <input type="text" name="mobile" maxlength = "10" id="mobile"  class="fields"  onclick="dl(this.id)">
+		Date of Birth:
+		<select id="birthDay" onclick="dl(this.id)">
+			<option value="0">Day</option>
+		</select>
+		<select id="birthMonth" onclick="dl(this.id)">
+			<option value="0">Month</option>
+		</select>
+		
+		<select id="birthYear" onclick="dl(this.id)">
+			<option value="0">Year</option>
+		</select>
+		Gender: 
+		Male <input type="radio" name="gender" value="Male" class="fields" id="male" onclick="dl(this.id)">
+		Female <input type="radio" name="gender" value="Female" class="fields" id="female" onclick="dl(this.id)">
+		<input type="submit"  value="Submit">
+	<script>
+			var select1=document.getElementById('birthDay');
+			var select2=document.getElementById("birthMonth");
+			var select3=document.getElementById("birthYear");
+			//Generate dates
+			for (var i = 1; i <= 31; i++) {
+				select1.innerHTML+='<option value="' + i + '">' + i + '</option>';
+			}
+			//Generate months
+			for (var i = 1; i <= 12; i++) {
+				select2.innerHTML+='<option value="' + i + '">' + i + '</option>';
+			}
+			//Generate years
+			var currentTime = new Date();
+			var year = currentTime.getFullYear();
+			for (var i = year; i >= 1900; i--) {
+				select3.innerHTML+='<option value="' + i + '">' + i + '</option>';
+			}
+	</script>
+	</form>
+</body>
+</html>

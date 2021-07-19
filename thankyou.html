@@ -1,0 +1,36 @@
+<html>
+<head>
+<script>
+	var dataLayer = window.dataLayer || [];
+	window.dataLayer.push({
+		'conversion':'successful'
+	});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MQDMLBK');</script>
+<!-- End Google Tag Manager -->
+	<style type="text/css">
+		img{
+			border:1px solid;
+			width: 290px;
+			height: 280px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQDMLBK"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<img src="" id="product">
+	<h1>Thank You!</h1>	
+	<script type="text/javascript">
+		var imagge = localStorage.getItem("src");  //get image from local storage
+		document.getElementById("product").setAttribute("src",imagge); //set image path
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<script>
+	var dataLayer = window.dataLayer || [];
+	var timerStart = Date.now(); // Start timer
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MQDMLBK');</script>
+<!-- End Google Tag Manager -->
+	<style type="text/css">
+		img{
+			border:1px solid;
+			width: 290px;
+			height: 280px;
+		}
+	</style>
+	<script type="text/javascript">
+		// Check if image is selected on page
+		var count = 0;
+		function validate_next(){
+			if(count==0){
+				alert("Please select image");
+				return false;
+			}
+		}
+		function saveimg(source,id,time) {
+			count = 1;
+			document.getElementById('si').innerHTML=id //Image Name
+			localStorage.setItem("src", source); // Save image in local storage
+			window.dataLayer.push({
+			'img':id,
+			'tt':time-timerStart //Time diff
+	});
+		}
+	</script>
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQDMLBK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<form name="myform2" action="./thankyou.html" onsubmit="return(validate_next());">
+		<img src="images/uno.png" class="image" id ="uno" alt="UNO" onclick="saveimg(this.src,this.id,Date.now());">
+		<img src="images/earbuds.jfif" class="image" id="earbuds" alt="earbuds" onclick="saveimg(this.src,this.id,Date.now());">
+		<img src="images/oneplus.jfif" class="image" id="oneplus" alt="oneplus" onclick="saveimg(this.src,this.id,Date.now());">
+		<img src="images/msd_bobble.jfif" id="msd_booble" alt="msd_bobble" onclick="saveimg(this.src,this.id,Date.now());">
+		<img src="images/portable_desk.jfif" class="image" id="portable_desk"alt="portable_desk" onclick="saveimg(this.src,this.id,Date.now());"><br><br>
+		<center>
+			<span id="si"></span><br><br>
+			<input type="submit" value="Next">
+		</center>
+</form>
+</body>
+</html> 
