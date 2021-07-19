@@ -1,5 +1,3 @@
-Assignment
-
 ## Sign-In Page
 ![image](https://user-images.githubusercontent.com/75886245/126165774-896bdb48-5c41-44ce-9429-3297f064f85a.png)
 
